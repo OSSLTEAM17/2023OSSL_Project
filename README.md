@@ -1,5 +1,37 @@
-# 2023OSSL_Project
+## 📝 OSSLTEAM17 프로젝트 주제
+* 가계부 작성 프로그램   
 
 
-<img src="https://pixabay.com/images/id-761599.jpg"/>
-<img src="https://pixabay.com/images/id-761599.jpg" alt="taximg">
+## 📑 프로젝트에 대한 소개
+#### 가계부를 작성할 때 
+일일이 손으로 작성하면 손도 아프고, 시간도 오래 걸리며 종종 계산실수를 하는 경우가 있습니다.   
+그럴 때마다 계산을 하나 하나 되짚어가기란 피곤한 일입니다.   
+<p align="center"><img src="https://user-images.githubusercontent.com/130718231/236451369-57d7de84-af54-4387-b6fb-3a6876b56229.png" width="200" height="200"></img>
+<img src="https://user-images.githubusercontent.com/130718231/236480169-3e4ec664-5424-4caa-8d45-415c0d8767da.png" width="200" height="200"></img></p>
+
+#### 이 프로젝트의 목적은:   
+* 사용자가 가계부를 작성할때 계산 실수를 없애고
+* 잘못 적은 내용은 쉽게 고칠 수 있게 하며
+* 정산 내역을 한눈에 볼 수 있게 만들어 효과적으로 가계부를 작성할 수 있도록 돕는 프로그램을 구현하는 것입니다.
+
+#### 이 프로그램을 사용하면...
+✔️ 일일이 펜으로 내용을 적을 필요가 없어 작성하는 시간을 절약할 수 있습니다.    
+✔️ 파일로 저장할 수 있기 때문에 나중에 가계부를 파일로 확인해 볼 수 있습니다.     
+✔️ 프로그램이 알아서 지출 내역을 정산해 주기 때문에 계산기를 사용할 필요가 없습니다.    
+
+
+## 🔍 프로그램의 기능 설명
+(내용작성)   
+
+## 🔨 프로젝트에 사용된 개발환경 및 언어
+* vscode와 C언어  
+<img src="https://user-images.githubusercontent.com/130718231/236453724-13d9f6fb-bf3c-42c1-a5d9-979a97304435.png" width="200" height="200"></img>
+<img src="https://user-images.githubusercontent.com/130718231/236453858-5720957d-7ce5-4f9f-9ed6-320a020577a2.png" width="200" height="200"></img>
+
+
+## 👤👤 팀 소개 및 팀원이 맡은 역할
+저희 팀은 프로젝트 팀원을 배정할 때 17번 팀으로 배정되었기 때문에 'OSSLTEAM17'로 팀 이름을 정했습니다.        
+#### 팀원과 역할 
+ 
+  * 22학번 박은주 : README 파일 작성, 개발, Wiki 페이지 작성  
+  * 22학번 박종혁 : 아이디어 제안 및 구체화, 개발, Wiki 페이지 작성  
