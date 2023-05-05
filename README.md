@@ -23,8 +23,9 @@
 ## 🔍 프로그램의 기능 설명
 (내용작성)   
 
-## 🔨 프로젝트에 사용된 개발환경 및 언어
-* vscode와 C언어  
+## 🔨 개발환경 및 언어
+* vscode
+* C언어  
 <img src="https://user-images.githubusercontent.com/130718231/236453724-13d9f6fb-bf3c-42c1-a5d9-979a97304435.png" width="200" height="200"></img>
 <img src="https://user-images.githubusercontent.com/130718231/236453858-5720957d-7ce5-4f9f-9ed6-320a020577a2.png" width="200" height="200"></img>
 
@@ -33,5 +34,7 @@
 저희 팀은 프로젝트 팀원을 배정할 때 17번 팀으로 배정되었기 때문에 'OSSLTEAM17'로 팀 이름을 정했습니다.        
 #### 팀원과 역할 
  
-  * 22학번 박은주 : README 파일 작성, 개발, Wiki 페이지 작성  
-  * 22학번 박종혁 : 아이디어 제안 및 구체화, 개발, Wiki 페이지 작성  
+  * 22학번 박은주  
+   README 파일 작성, 개발, Wiki 페이지 작성  
+  * 22학번 박종혁   
+   아이디어 제안 및 구체화, 개발, Wiki 페이지 작성  
