@@ -6,7 +6,6 @@ typedef struct{
     char what[100];
     int price;
     char meno[100]; 
-    char type[20];
 } use_data;
 
 typedef struct{
@@ -23,4 +22,3 @@ int add_use(use_data* p);
 void read_use(use_data* p);
 void updata_use(use_data* p);
 void delete_use(use_data *p);
-
