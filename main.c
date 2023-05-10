@@ -1,3 +1,26 @@
+int select_menu(){
+    int num;
+    
+    printf("\n****************************\n");
+    printf("1. 소비 추가\n");
+    printf("2. 소비 출력\n");
+    printf("3. 소비 수정\n");
+    printf("4. 소비 삭제\n");
+    printf("5. 데이터 저장 \n");
+    printf("6. 소비 검색\n");
+    printf("7. 하루 전체 소비 출력\n");
+    printf("8. 한달 전체 소비 출력\n");
+    printf("9. 달력 출력\n");
+    printf("0. 종료\n");
+    printf("사용하실 메뉴를 입력하세요: ");
+
+
+    scanf("%d", &num);
+    return num;
+}
+
+
+
 int calender(int* year_main, int* month_main){
     int days, blanks;
     int leap_year;
@@ -119,4 +142,6 @@ int calender(int* year_main, int* month_main){
     printf("\n");
     return days;
 }
+
+
 
