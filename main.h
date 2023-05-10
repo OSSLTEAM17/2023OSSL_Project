@@ -14,11 +14,21 @@ typedef struct{
     use_data* udata[20];
 } Dates;
 
-int calender(int* year_main, int* month_main);
-int day_selector(int days);
-int data_selector(Dates *p);
-int select_menu();
-int add_use(use_data* p);
-void read_use(use_data* p);
-void updata_use(use_data* p);
-void delete_use(use_data *p);
+int calender(int* year_main, int* month_main); //종혁
+int day_selector(int days); //종혁
+int data_selector(Dates *p); //종혁
+int select_menu(); //은주, 종혁
+
+int add_use(use_data* p); //종혁 
+void read_use(use_data* p); //은주
+void updata_use(use_data* p); //종혁
+void delete_use(use_data *p); //은주
+
+void load_data(); //은주, 종혁
+void save_data(); //은주, 종혁
+
+void search_data(); //은주
+void print_day_sum(); //은주
+void print_month_sum(); //은주, 종혁
+int statistics(); //종혁
+
