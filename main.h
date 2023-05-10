@@ -5,7 +5,7 @@
 typedef struct{
     char what[100];
     int price;
-    char meno[100]; 
+    char memo[100]; 
 } use_data;
 
 typedef struct{
