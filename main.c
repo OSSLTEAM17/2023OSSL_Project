@@ -1,3 +1,5 @@
+#include "main.h"
+
 int select_menu(){
     int num;
     
