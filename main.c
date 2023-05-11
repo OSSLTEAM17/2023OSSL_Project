@@ -1,5 +1,55 @@
 #include "main.h"
 
+int add_use(use_data* p){
+    int yn;
+    printf("소비 내용을 입력하세요: ");
+    getchar();
+    fgets(p->what, 100, stdin);
+    p->what[strlen(p->what) - 1] = '\0';
+
+    printf("소비의 가격을 입력하세요: ");
+    scanf("%d", &(p->price));
+
+    printf("소비의 추가하고 싶은 메모가 있으신가요? (예: 1, 아니요: 0) ");
+    scanf("%d", &yn);
+
+    if(yn == 1){
+        printf("메모를 입력하세요. ");
+        getchar();
+        fgets(p->memo, 100, stdin);
+        p->memo[strlen(p->memo) - 1] = '\0';
+    }
+    else{
+        strcpy(p->memo, "없음");
+    }
+
+    return 1;
+}
+
+void updata_use(use_data* p){
+    int yn;
+    printf("수정된 소비 내용을 입력하세요: ");
+    getchar();
+    fgets(p->what, 100, stdin);
+    p->what[strlen(p->what) - 1] = '\0';
+
+    printf("수정된 소비의 가격을 입력하세요: ");
+    scanf("%d", &(p->price));
+
+    printf("수정된 소비의 추가하고 싶은 메모가 있으신가요? (예: 1, 아니요: 0) ");
+    scanf("%d", &yn);
+
+    if(yn == 1){
+        printf("메모를 입력하세요. ");
+        getchar();
+        fgets(p->memo, 100, stdin);
+        p->memo[strlen(p->memo) - 1] = '\0';
+    }
+    else{
+        strcpy(p->memo, "없음");
+    }
+}
+
 int select_menu(){
     int num;
     
