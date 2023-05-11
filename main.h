@@ -20,7 +20,7 @@ int data_selector(Dates *p); //종혁
 int select_menu(); //은주, 종혁
 
 int add_use(use_data* p); //종혁 
-void read_use(use_data* p); //은주
+void read_use(Dates* h); //은주, use_data에서 Dates로 변경 
 void updata_use(use_data* p); //종혁
 void delete_use(use_data *p); //은주
 

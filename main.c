@@ -214,3 +214,14 @@ int calender(int* year_main, int* month_main){
 
 
 
+void read_use(use_data* p){
+ 
+ printf("\t소비: %-20s\n\t가격: %-10d\n\t메모: %-s\n", p->what, p->price, p->memo);
+
+} 
+void delete_use(use_data *p){ //
+  printf("%s ", p->what);
+    free(p);
+    p = NULL;
+    printf("에 대한 데이터가 삭제되었습니다.\n");
+} 
