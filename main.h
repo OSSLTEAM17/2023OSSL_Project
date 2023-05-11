@@ -5,7 +5,7 @@
 typedef struct{
     char what[100];
     int price;
-    char memo[100]; 
+    char meno[100]; 
 } use_data;
 
 typedef struct{
@@ -32,3 +32,4 @@ void print_day_sum(); //은주
 void print_month_sum(); //은주, 종혁
 int statistics(); //종혁
 
+void read_use_all(Dates* p[], int days);
