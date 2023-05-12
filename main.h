@@ -32,4 +32,4 @@ void print_day_sum(); //은주
 void print_month_sum(); //은주, 종혁
 int statistics(); //종혁
 
-//Nothing to compare 뜸?? 
+void read_use_all(Dates* p); // 지출 내역을 다 읽어오는 함수  

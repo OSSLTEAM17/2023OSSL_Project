@@ -225,3 +225,18 @@ void delete_use(use_data *p){ //
     p = NULL;
     printf("에 대한 데이터가 삭제되었습니다.\n");
 } 
+
+void read_use_all(Dates *p){
+    int n_count = 0;
+    printf("===========================\n");
+    printf("번호| 지출내역 | 지출비용 | 메모 \n");
+    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
+    else{
+    for(int i = 0; i < p->count; i++){
+        if(p->udata[i] == NULL) continue;
+        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
+        n_count++;
+    }
+    printf("===========================\n");
+    }
+}
