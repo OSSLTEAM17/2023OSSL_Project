@@ -2,19 +2,18 @@
 
 int add_use(use_data* p){
     int yn;
+   do{
     printf("소비 내용을 입력하세요: ");
     getchar();
     fgets(p->what, 100, stdin);
     p->what[strlen(p->what) - 1] = '\0';
-
-    printf("소비의 가격을 입력하세요: ");
+    printf("소비한 비용을 입력하세요: ");
     scanf("%d", &(p->price));
-
     printf("소비의 추가하고 싶은 메모가 있으신가요? (예: 1, 아니요: 0) ");
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("메모를 입력하세요. ");
+        printf("메모를 입력하세요: ");
         getchar();
         fgets(p->memo, 100, stdin);
         p->memo[strlen(p->memo) - 1] = '\0';
@@ -22,6 +21,11 @@ int add_use(use_data* p){
     else{
         strcpy(p->memo, "없음");
     }
+    printf("더 입력하시겠습니까? (예: 1, 아니요: 0)");
+    int yesOrNo;
+    scanf("%d",yesOrNo); // no = 0, yes = 1
+    if(yesOrNo!=1) break;
+   }while(1);
 
     return 1;
 }
@@ -225,3 +229,18 @@ void delete_use(use_data *p){ //
     p = NULL;
     printf("에 대한 데이터가 삭제되었습니다.\n");
 } 
+
+void read_use_all(Dates *p){
+    int n_count = 0;
+    printf("===========================\n");
+    printf("번호| 지출내역 | 지출비용 | 메모 \n");
+    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
+    else{
+    for(int i = 0; i < p->count; i++){
+        if(p->udata[i] == NULL) continue;
+        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
+        n_count++;
+    }
+    printf("===========================\n");
+    }
+}
