@@ -6,7 +6,6 @@ int add_use(use_data* p){
     getchar();
     fgets(p->what, 100, stdin);
     p->what[strlen(p->what) - 1] = '\0';
-
     printf("소비의 가격을 입력하세요: ");
     scanf("%d", &(p->price));
 
