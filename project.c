@@ -44,14 +44,9 @@ int main(){
             
         }
 
-<<<<<<< HEAD
         else if(menu == 7){
             read_use_all(h);
-=======
-        else if(menu == 7){ // 하루치 모두 출력 
->>>>>>> develop
         }
-        
         else if(menu == 8){
             
         }

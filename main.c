@@ -7,11 +7,7 @@ int add_use(use_data* p){
     getchar();
     fgets(p->what, 100, stdin);
     p->what[strlen(p->what) - 1] = '\0';
-<<<<<<< HEAD
     printf("소비의 가격을 입력하세요: ");
-=======
-    printf("소비한 비용을 입력하세요: ");
->>>>>>> develop
     scanf("%d", &(p->price));
     printf("소비의 추가하고 싶은 메모가 있으신가요? (예: 1, 아니요: 0) ");
     scanf("%d", &yn);
@@ -244,7 +240,7 @@ printf("\n****************************\n");
             }
 
 }
-void read_use_one(use_data* p){
+void read_use_one(use_data* p){//한 개 데이터  
  
  printf("\t소비: %-20s\n\t가격: %-10d\n\t메모: %-s\n", p->what, p->price, p->memo);
 
@@ -259,7 +255,7 @@ void delete_use(Dates *p[], int days){ // days 추가
                 printf("데이터가 없습니다.\n");
             }
             else{
-                int data_num = data_selector(p[input_day - 1]); // 삭제할 데이터 번호를 받아옴 
+            int data_num = data_selector(p[input_day - 1]); // 삭제할 데이터 번호를 받아옴 
    printf("%s ", p[input_day - 1]->udata[data_num]->what); // 삭제할 데이터의 내용을 출력 
    use_data * p2;
         p2=p[input_day -1]->udata[data_num];
@@ -272,8 +268,7 @@ void delete_use(Dates *p[], int days){ // days 추가
 
 } 
 
-<<<<<<< HEAD
-void read_use_all(Dates *p){
+void read_use_all(Dates *p){//하루 소비 내역(what) 모두 출력 
     int n_count = 0;
     printf("===========================\n");
     printf("번호| 지출내역 | 지출비용 | 메모 \n");
@@ -287,5 +282,3 @@ void read_use_all(Dates *p){
     printf("===========================\n");
     }
 }
-=======
->>>>>>> develop
