@@ -43,11 +43,10 @@ int main(){
         else if(menu == 6){
             
         }
-
         else if(menu == 7){
             read_use_all(h);
+
         }
-        
         else if(menu == 8){
             
         }
