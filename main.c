@@ -26,6 +26,12 @@ int add_use(use_data* p){
     return 1;
 }
 
+void read_use(use_data* p){
+ 
+ printf("\t소비: %-20s\n\t가격: %-10d\n\t메모: %-s\n", p->what, p->price, p->memo);
+
+}
+
 void updata_use(use_data* p){
     int yn;
     printf("수정된 소비 내용을 입력하세요: ");
@@ -50,6 +56,42 @@ void updata_use(use_data* p){
     }
 }
 
+void delete_use(use_data *p){ //
+  printf("%s ", p->what);
+    free(p);
+    p = NULL;
+    printf("에 대한 데이터가 삭제되었습니다.\n");
+}
+
+int data_selector(Dates *p){
+    int num;
+    for(int i = 0; i < p->count; i++){
+        if(p->udata[i] == NULL) continue;
+        printf("%d ", i + 1);
+        printf("%s\n", p->udata[i]->what);
+    }
+
+    printf("번호를 선택하여주세요 (취소: 0): ");
+    scanf("%d", &num);
+
+    return num - 1;
+}
+
+void read_use_all(Dates *p){
+    int n_count = 0;
+    printf("===========================\n");
+    printf("번호| 지출내역 | 지출비용 | 메모 \n");
+    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
+    else{
+    for(int i = 0; i < p->count; i++){
+        if(p->udata[i] == NULL) continue;
+        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
+        n_count++;
+    }
+    printf("===========================\n");
+    }
+}
+
 int select_menu(){
     int num;
     
@@ -70,8 +112,6 @@ int select_menu(){
     scanf("%d", &num);
     return num;
 }
-
-
 
 int calender(int* year_main, int* month_main){
     int days, blanks;
@@ -213,30 +253,4 @@ int calender(int* year_main, int* month_main){
 }
 
 
-
-void read_use(use_data* p){
  
- printf("\t소비: %-20s\n\t가격: %-10d\n\t메모: %-s\n", p->what, p->price, p->memo);
-
-} 
-void delete_use(use_data *p){ //
-  printf("%s ", p->what);
-    free(p);
-    p = NULL;
-    printf("에 대한 데이터가 삭제되었습니다.\n");
-} 
-
-void read_use_all(Dates *p){
-    int n_count = 0;
-    printf("===========================\n");
-    printf("번호| 지출내역 | 지출비용 | 메모 \n");
-    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
-    else{
-    for(int i = 0; i < p->count; i++){
-        if(p->udata[i] == NULL) continue;
-        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
-        n_count++;
-    }
-    printf("===========================\n");
-    }
-}
