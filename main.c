@@ -217,30 +217,54 @@ int calender(int* year_main, int* month_main){
 }
 
 
+void read_use(Dates* p[], int days){
 
-void read_use(use_data* p){
+printf("\n****************************\n");
+
+            int input_day = day_selector(days); //<< 원본
+            int num;
+            if(p[input_day - 1]->real_count == 0){
+                
+                printf("\n=>해당 날짜에는 소비 내역이 없습니다.\n");
+            }
+            else{
+                num = data_selector(p[input_day - 1]);
+                //
+                if(num==0){
+                    printf("취소했습니다.");
+                }
+                //
+                printf("\n****************************\n");
+
+                read_use_one(p[input_day - 1]->udata[num]);
+            }
+
+}
+void read_use_one(use_data* p){
  
  printf("\t소비: %-20s\n\t가격: %-10d\n\t메모: %-s\n", p->what, p->price, p->memo);
 
 } 
-void delete_use(use_data *p){ //
-  printf("%s ", p->what);
-    free(p);
-    p = NULL;
-    printf("에 대한 데이터가 삭제되었습니다.\n");
+
+void delete_use(Dates *p[], int days){ // days 추가 
+
+    printf("\n****************************\n");
+    int input_day;
+            input_day = day_selector(days); // 날짜 선택. 각 월에 없는 날짜 입력하면 없는 날짜라고 출력함 
+            if(p[input_day - 1]->real_count == 0){ 
+                printf("데이터가 없습니다.\n");
+            }
+            else{
+                int data_num = data_selector(p[input_day - 1]); // 삭제할 데이터 번호를 받아옴 
+   printf("%s ", p[input_day - 1]->udata[data_num]->what); // 삭제할 데이터의 내용을 출력 
+   use_data * p2;
+        p2=p[input_day -1]->udata[data_num];
+    free(p2);
+    p2 = NULL;
+    printf("에 대한 가계데이터가 삭제되었습니다.\n");
+    p[input_day-1]->real_count--;
+            }
+
+
 } 
 
-void read_use_all(Dates *p){
-    int n_count = 0;
-    printf("===========================\n");
-    printf("번호| 지출내역 | 지출비용 | 메모 \n");
-    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
-    else{
-    for(int i = 0; i < p->count; i++){
-        if(p->udata[i] == NULL) continue;
-        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
-        n_count++;
-    }
-    printf("===========================\n");
-    }
-}

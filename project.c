@@ -32,7 +32,8 @@ int main(){
         else if(menu == 3){
         }
 
-        else if(menu == 4){
+        else if(menu == 4){// 삭제
+        
         }
 
         else if(menu == 5){
@@ -43,7 +44,7 @@ int main(){
             
         }
 
-        else if(menu == 7){
+        else if(menu == 7){ // 하루치 모두 출력 
         }
         
         else if(menu == 8){
