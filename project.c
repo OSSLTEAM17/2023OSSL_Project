@@ -44,8 +44,14 @@ int main(){
             
         }
 
+<<<<<<< HEAD
         else if(menu == 7){
             read_use_all(h);
+=======
+
+        else if(menu == 7){
+
+>>>>>>> develop
         }
         else if(menu == 8){
             
