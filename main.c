@@ -37,6 +37,45 @@ void read_use_one(use_data* p){
 
 }
 
+void read_use(Dates* p[], int days){
+
+printf("\n****************************\n");
+
+            int input_day = day_selector(days); //<< 원본
+            int num;
+            if(p[input_day - 1]->real_count == 0){
+                
+                printf("\n=>해당 날짜에는 소비 내역이 없습니다.\n");
+            }
+            else{
+                num = data_selector(p[input_day - 1]);
+                //
+                if(num==0){
+                    printf("취소했습니다.");
+                }
+                //
+                printf("\n****************************\n");
+
+                read_use_one(p[input_day - 1]->udata[num]);
+            }
+
+}
+
+void read_use_all(Dates *p){
+    int n_count = 0;
+    printf("===========================\n");
+    printf("번호| 지출내역 | 지출비용 | 메모 \n");
+    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
+    else{
+    for(int i = 0; i < p->count; i++){
+        if(p->udata[i] == NULL) continue;
+        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
+        n_count++;
+    }
+    printf("===========================\n");
+    }
+}
+    
 void updata_use(use_data* p){
     int yn;
     printf("수정된 소비 내용을 입력하세요: ");
@@ -97,20 +136,6 @@ int data_selector(Dates *p){
     return num - 1;
 }
 
-void read_use_all(Dates *p){
-    int n_count = 0;
-    printf("===========================\n");
-    printf("번호| 지출내역 | 지출비용 | 메모 \n");
-    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
-    else{
-    for(int i = 0; i < p->count; i++){
-        if(p->udata[i] == NULL) continue;
-        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
-        n_count++;
-    }
-    printf("===========================\n");
-    }
-}
 
 int select_menu(){
     int num;
@@ -272,20 +297,3 @@ int calender(int* year_main, int* month_main){
     return days;
 }
 
-
-
-
-void read_use_all(Dates *p){
-    int n_count = 0;
-    printf("===========================\n");
-    printf("번호| 지출내역 | 지출비용 | 메모 \n");
-    if(p->count==0) printf(" =>해당 날짜에는 소비 내역이 없습니다.\n");
-    else{
-    for(int i = 0; i < p->count; i++){
-        if(p->udata[i] == NULL) continue;
-        printf("%d| %s %d원| 메모: %s\n", n_count + 1, p->udata[i]->what,p->udata[i]->price,p->udata[i]->memo);
-        n_count++;
-    }
-    printf("===========================\n");
-    }
-}
