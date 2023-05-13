@@ -20,9 +20,9 @@ int data_selector(Dates *p); //종혁
 int select_menu(); //은주, 종혁
 
 int add_use(use_data* p); //종혁 
-void read_use(use_data* h); //은주
+void read_use(Dates *p[], int days);//은주
 void updata_use(use_data* p); //종혁
-void delete_use(use_data *p); //은주
+void delete_use(Dates* p[], int days); //은주
 
 void load_data(); //은주, 종혁
 void save_data(); //은주, 종혁
@@ -32,4 +32,8 @@ void print_day_sum(); //은주
 void print_month_sum(); //은주, 종혁
 int statistics(); //종혁
 
+<<<<<<< HEAD
 void read_use_all(Dates* p); // 지출 내역을 다 읽어오는 함수  
+=======
+void read_use_one(use_data* p); //은주, read_use 함수에서 나온 use 내용 중 선택한 use 하나만 출력
+>>>>>>> develop
