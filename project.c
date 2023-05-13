@@ -44,7 +44,9 @@ int main(){
             
         }
 
-        else if(menu == 7){ // 하루치 모두 출력 
+
+        else if(menu == 7){
+
         }
         
         else if(menu == 8){
