@@ -3,16 +3,27 @@
 int main(){
     int year, month;
     year = month = 0;
-    int days = calender(&year, &month);
-
-    int  menu;
     Dates* h[31];
 
+    int input_day, menu, yn, num;
+    
+    printf("파일을 읽어오시겠습니까? (예: 1, 아니요: 0) ");
+    scanf("%d", &yn);
+
+    if(yn == 1){
+        printf("읽어오실 데이터의 년도와 월에 대한 정보를 입력해주세요. ");
+        scanf("%d %d", &year, &month);
+    }
+
+    int days = calender(&year, &month);
     for(int i = 0; i < days; i++){
         h[i] = (Dates*)malloc(sizeof(Dates));
         h[i]->count = 0;
         h[i]->real_count = 0;
-        
+    }
+    
+    if(yn == 1){
+        loadData(h);
     }
 
 
