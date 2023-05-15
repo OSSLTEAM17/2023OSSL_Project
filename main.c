@@ -80,17 +80,19 @@ int day_selector(int days){
 
 int data_selector(Dates *p){
     int num;
+    int temp[20] = {0,};
     for(int i = 0; i < p->count; i++){
         if(p->udata[i] == NULL) continue;
         printf("%d ", i + 1);
         printf("%s\n", p->udata[i]->what);
+        temp[i]++;
     }
 
     int yn;
     while(1){
         printf("번호를 선택하여주세요 (취소: 0): ");
         scanf("%d", &num);
-        if(num >=0 && num < p->count + 1) break;
+        if(num == 0 || temp[num - 1] == 1) break;
         printf("유효하지 않은 번호입니다. 다시입력하세요. ");
     }
 
