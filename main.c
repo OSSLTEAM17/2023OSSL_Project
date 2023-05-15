@@ -113,6 +113,84 @@ int select_menu(){
     return num;
 }
 
+void loadData(Dates* h[]){
+    
+    
+    char temp[200];
+    char temp_strings[3][100];
+    int nums[2];
+    int count = 0;
+    int j;
+    int current_day;
+    int d_count = 0;
+    
+    FILE* file;
+    if((file = fopen("data.txt", "rt")) == NULL){
+        printf("=> 파일 불러오기 실패.\n");
+    }
+    else{
+        while(1){
+            if(fgets(temp, 220, file) == NULL) break;
+
+            if(strlen(temp) < 3){
+                current_day = atoi(temp);
+                d_count = 0;
+            }
+            else{
+                count = 0;
+
+                for(j = 0; j < strlen(temp); j++){
+                    if(temp[j] == ','){
+                        nums[count] = j;
+                        count++;
+                    }
+                }
+
+                h[current_day - 1]->udata[d_count] = (use_data*)malloc(sizeof(use_data));
+
+                strncpy(temp_strings[0], temp, nums[0]);
+                temp_strings[0][nums[0]] = '\0';
+                strcpy(h[current_day - 1]->udata[d_count]->what, temp_strings[0]);
+
+                strncpy(temp_strings[1], temp + nums[0] + 1, nums[1] - nums[0]);
+                temp_strings[1][nums[1] - nums[0] - 1] = '\0';
+                h[current_day - 1]->udata[d_count]->price = atoi(temp_strings[1]);
+
+                strncpy(temp_strings[2], temp + nums[1] + 1, strlen(temp) - nums[1]);
+                temp_strings[2][strlen(temp) - nums[1] - 2] = '\0';
+                strcpy(h[current_day - 1]->udata[d_count]->memo, temp_strings[2]);
+
+                d_count++;
+                h[current_day - 1]->count++;
+                h[current_day - 1]->real_count++;
+            }
+        }
+
+        fclose(file);
+    }
+
+}
+
+void saveData(Dates* h[], int days){
+    FILE* file;
+    file = fopen("data1.txt", "wt");
+
+
+    for(int i = 0; i < days; i++){
+        if(h[i]->real_count > 0){
+            fprintf(file, "%d\n", i + 1);
+
+            for(int j = 0; j < h[i]->count; j++){
+                if(h[i]->udata[j] == NULL) continue;
+                fprintf(file, "%s,%d,%s\n", h[i]->udata[j]->what, h[i]->udata[j]->price, h[i]->udata[j]->memo);
+            }
+        }
+
+    }
+
+    fclose(file);
+}
+
 int calender(int* year_main, int* month_main){
     int days, blanks;
     int leap_year;
