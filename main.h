@@ -27,8 +27,8 @@ void delete_use(use_data *p); //은주 (구현 완료)
 void load_data(); //은주, 종혁 (구현 완료)
 void save_data(); //은주, 종혁 (구현 완료)
 
-void search_data(); //은주
-void print_day_sum(Dates* p[], int days); //은주, Dates* p, int days 파라미터로 추가 
+void search_data(Dates* h[], int days); //은주, Dates*h[], int days 추가
+void print_day_sum(Dates* p[], int days); //은주, Dates* p, int days 파라미터로 추가 <= 일단 구현 완료
 void print_month_sum(); //은주, 종혁
 int statistics(); //종혁
 

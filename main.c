@@ -356,7 +356,31 @@ printf("\n========================\n");
             }
    
  printf("\n========================\n");
-
-
 }
 
+void search_data(Dates* h[], int days){
+    int scnt = 0;//
+    char search[20]; //검색할 키워드 
+    printf("검색할 키워드를 입력해주세요(띄어쓰기 없이): ");
+    scanf("%s", search);
+    printf("\n===============================================\n");
+    for (int i = 0; i < days; i++)
+    {
+        if (h[i] == NULL)
+            continue;
+            for(int j=0; j<20; j++){
+        if (strstr(h[i]->udata[j]->what, search)==NULL)
+        continue;
+        if(strstr(h[i]->udata[j]->what, search))
+        {
+             printf("%s,%d,%s\n", h[i]->udata[j]->what, h[i]->udata[j]->price, h[i]->udata[j]->memo);
+            scnt++;
+        }
+            }
+    }
+    if (scnt == 0)
+        printf("=> 해당 키워드 들어간 데이터 없음! ");
+    printf("\n");
+      printf("\n===============================================\n");
+
+}
