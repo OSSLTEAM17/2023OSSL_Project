@@ -3,56 +3,56 @@
 
 int add_use(use_data* p){
     int yn;
-    printf("ì†Œë¹„ ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("¼Òºñ ³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     getchar();
     fgets(p->what, 100, stdin);
     p->what[strlen(p->what) - 1] = '\0';
 
-    printf("ì†Œë¹„ì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("¼ÒºñÀÇ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     scanf("%d", &(p->price));
 
-    printf("ì†Œë¹„ì˜ ì¶”ê°€í•˜ê³  ì‹¶ì€ ë©”ëª¨ê°€ ìˆìœ¼ì‹ ê°€ìš”? (ì˜ˆ: 1, ì•„ë‹ˆìš”: 0) ");
+    printf("¼ÒºñÀÇ Ãß°¡ÇÏ°í ½ÍÀº ¸Ş¸ğ°¡ ÀÖÀ¸½Å°¡¿ä? (¿¹: 1, ¾Æ´Ï¿ä: 0) ");
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("ë©”ëª¨ë¥¼ ì…ë ¥í•˜ì„¸ìš”. ");
+        printf("¸Ş¸ğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. ");
         getchar();
         fgets(p->memo, 100, stdin);
         p->memo[strlen(p->memo) - 1] = '\0';
     }
     else{
-        strcpy(p->memo, "ì—†ìŒ");
+        strcpy(p->memo, "¾øÀ½");
     }
 
     return 1;
 }
 
 void read_use(use_data* p){
-    printf("\tì†Œë¹„: %-20s\n\tê°€ê²©: %-10d\n\të©”ëª¨: %-s\n", p->what, p->price, p->memo);
+    printf("\t¼Òºñ: %-20s\n\t°¡°İ: %-10d\n\t¸Ş¸ğ: %-s\n", p->what, p->price, p->memo);
     
 }
 
 void update_use(use_data* p){
     int yn;
-    printf("ìˆ˜ì •ëœ ì†Œë¹„ ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("¼öÁ¤µÈ ¼Òºñ ³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     getchar();
     fgets(p->what, 100, stdin);
     p->what[strlen(p->what) - 1] = '\0';
 
-    printf("ìˆ˜ì •ëœ ì†Œë¹„ì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("¼öÁ¤µÈ ¼ÒºñÀÇ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     scanf("%d", &(p->price));
 
-    printf("ìˆ˜ì •ëœ ì†Œë¹„ì˜ ì¶”ê°€í•˜ê³  ì‹¶ì€ ë©”ëª¨ê°€ ìˆìœ¼ì‹ ê°€ìš”? (ì˜ˆ: 1, ì•„ë‹ˆìš”: 0) ");
+    printf("¼öÁ¤µÈ ¼ÒºñÀÇ Ãß°¡ÇÏ°í ½ÍÀº ¸Ş¸ğ°¡ ÀÖÀ¸½Å°¡¿ä? (¿¹: 1, ¾Æ´Ï¿ä: 0) ");
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("ë©”ëª¨ë¥¼ ì…ë ¥í•˜ì„¸ìš”. ");
+        printf("¸Ş¸ğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. ");
         getchar();
         fgets(p->memo, 100, stdin);
         p->memo[strlen(p->memo) - 1] = '\0';
     }
     else{
-        strcpy(p->memo, "ì—†ìŒ");
+        strcpy(p->memo, "¾øÀ½");
     }
 }
 
@@ -61,17 +61,17 @@ void delete_use(use_data *p){
     free(p);
     p = NULL;
 
-    printf("ì— ëŒ€í•œ ê°€ê³„ë°ì´í„°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+    printf("¿¡ ´ëÇÑ °¡°èµ¥ÀÌÅÍ°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n");
 }
 
 int day_selector(int days){
     int day;
     while(1){
-        printf("ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+        printf("³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
         scanf("%d", &day);
 
         if(day > days || day < 1){
-            printf("ìœ íš¨í•˜ì§€ ì•Šì€ ë‚ ì§œì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.\n");
+            printf("À¯È¿ÇÏÁö ¾ÊÀº ³¯Â¥ÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.\n");
         }
         else break;
     }
@@ -90,31 +90,30 @@ int data_selector(Dates *p){
 
     int yn;
     while(1){
-        printf("ë²ˆí˜¸ë¥¼ ì„ íƒí•˜ì—¬ì£¼ì„¸ìš” (ì·¨ì†Œ: 0): ");
+        printf("¹øÈ£¸¦ ¼±ÅÃÇÏ¿©ÁÖ¼¼¿ä (Ãë¼Ò: 0): ");
         scanf("%d", &num);
         if(num == 0 || temp[num - 1] == 1) break;
-        printf("ìœ íš¨í•˜ì§€ ì•Šì€ ë²ˆí˜¸ì…ë‹ˆë‹¤. ë‹¤ì‹œì…ë ¥í•˜ì„¸ìš”. ");
+        printf("À¯È¿ÇÏÁö ¾ÊÀº ¹øÈ£ÀÔ´Ï´Ù. ´Ù½ÃÀÔ·ÂÇÏ¼¼¿ä. ");
     }
 
     return num;
 }
 
-
 int select_menu(){
     int num;
     
     printf("\n****************************\n");
-    printf("1. ì†Œë¹„ ì¶”ê°€\n");
-    printf("2. ì†Œë¹„ ì¶œë ¥\n");
-    printf("3. ì†Œë¹„ ìˆ˜ì •\n");
-    printf("4. ì†Œë¹„ ì‚­ì œ\n");
-    printf("5. ë°ì´í„° ì €ì¥ \n");
-    printf("6. ì†Œë¹„ ê²€ìƒ‰\n");
-    printf("7. í•˜ë£¨ ì „ì²´ ì†Œë¹„ ì¶œë ¥\n");
-    printf("8. í•œë‹¬ ì „ì²´ ì†Œë¹„ ì¶œë ¥\n");
-    printf("9. ë‹¬ë ¥ ì¶œë ¥\n");
-    printf("0. ì¢…ë£Œ\n");
-    printf("ì‚¬ìš©í•˜ì‹¤ ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("1. ¼Òºñ Ãß°¡\n");
+    printf("2. ¼Òºñ Ãâ·Â\n");
+    printf("3. ¼Òºñ ¼öÁ¤\n");
+    printf("4. ¼Òºñ »èÁ¦\n");
+    printf("5. µ¥ÀÌÅÍ ÀúÀå \n");
+    printf("6. ¼Òºñ °Ë»ö\n");
+    printf("7. ÇÏ·ç ÀüÃ¼ ¼Òºñ Ãâ·Â\n");
+    printf("8. ÇÑ´Ş ÀüÃ¼ ¼Òºñ Ãâ·Â\n");
+    printf("9. ´Ş·Â Ãâ·Â\n");
+    printf("0. Á¾·á\n");
+    printf("»ç¿ëÇÏ½Ç ¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
 
 
     scanf("%d", &num);
@@ -134,7 +133,7 @@ void loadData(Dates* h[]){
     
     FILE* file;
     if((file = fopen("data.txt", "rt")) == NULL){
-        printf("=> íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸° ì‹¤íŒ¨.\n");
+        printf("=> ÆÄÀÏ ºÒ·¯¿À±â ½ÇÆĞ.\n");
     }
     else{
         while(1){
@@ -181,7 +180,7 @@ void loadData(Dates* h[]){
 
 void saveData(Dates* h[], int days){
     FILE* file;
-    file = fopen("data1.txt", "wt");
+    file = fopen("data.txt", "wt");
 
 
     for(int i = 0; i < days; i++){
@@ -206,14 +205,14 @@ int calender(int* year_main, int* month_main){
 
     if(*year_main == 0 || *month_main == 0){
         while(1){
-            printf("ë…„ë„ì™€ ì›”ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+            printf("³âµµ¿Í ¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
             scanf("%d %d", year_main, month_main);
 
             if(*month_main < 1 || *month_main > 12){
-                printf("ìœ íš¨í•˜ì§€ ì•Šì€ ì›”ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.\n");
+                printf("À¯È¿ÇÏÁö ¾ÊÀº ¿ùÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.\n");
             }
             else if(*year_main < 1900){
-                printf("ìœ íš¨í•˜ì§€ ì•Šì€ ë…„ë„ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.\n");
+                printf("À¯È¿ÇÏÁö ¾ÊÀº ³âµµÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.\n");
             }
             else{
                 break;
@@ -223,7 +222,7 @@ int calender(int* year_main, int* month_main){
 
     int year = *year_main;
     int month = *month_main;
-    //ìš”ì¼ ì‹œì‘ ê³„ì‚° ì‹œì‘
+    //¿äÀÏ ½ÃÀÛ °è»ê ½ÃÀÛ
     blanks = 1;
     days = 0;
 
@@ -245,7 +244,7 @@ int calender(int* year_main, int* month_main){
             leap_year = 0;
         }
 
-        // ìœ¤ë…„ì´ë©´ ì „ë…„ë„ ì‹œì‘ ìš”ì¼ë³´ë‹¤ 2ê°œ ì•ìœ¼ë¡œ ì•„ë‹ˆë©´ 1ê°œ ì•ìœ¼ë¡œ
+        // À±³âÀÌ¸é Àü³âµµ ½ÃÀÛ ¿äÀÏº¸´Ù 2°³ ¾ÕÀ¸·Î ¾Æ´Ï¸é 1°³ ¾ÕÀ¸·Î
         if (leap_year == 0)
         {
             blanks++;
@@ -261,7 +260,7 @@ int calender(int* year_main, int* month_main){
         }
     }
 
-    // ì…ë ¥ ë…„ë„ì˜ ìœ¤ë…„ ì¡°ê±´
+    // ÀÔ·Â ³âµµÀÇ À±³â Á¶°Ç
     if (year % 400 == 0)
     {
         leap_year = 1;
@@ -279,7 +278,7 @@ int calender(int* year_main, int* month_main){
         leap_year = 0;
     }
 
-    // ë‹¬ì˜ ì‹œì‘ ìš”ì¼ êµ¬í•˜ëŠ” ì¡°ê±´
+    // ´ŞÀÇ ½ÃÀÛ ¿äÀÏ ±¸ÇÏ´Â Á¶°Ç
     for (i = 0; i < month; i++)
     {
         if (i == 0)
@@ -303,8 +302,8 @@ int calender(int* year_main, int* month_main){
         blanks = blanks % 7;
     }
 
-    // ìš”ì¼ ì‹œì‘ ê³„ì‚° ë
-    // ë‹¬ë ¥ì˜ ëë‚ ì§œ ì¡°ê±´ë¬¸ì„ í†µí•´ êµ¬í•˜ê¸°
+    // ¿äÀÏ ½ÃÀÛ °è»ê ³¡
+    // ´Ş·ÂÀÇ ³¡³¯Â¥ Á¶°Ç¹®À» ÅëÇØ ±¸ÇÏ±â
     if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
         days = 31;
 
@@ -318,7 +317,7 @@ int calender(int* year_main, int* month_main){
     else
         days = 30;
 
-    // ë‹¬ë ¥ ì¶œë ¥ ì‹œì‘
+    // ´Ş·Â Ãâ·Â ½ÃÀÛ
     printf("Sun    Mon    Tue    Wed    Thu    Fri    Sat\n");
 
     for (int i = 0; i < blanks; i++){
@@ -332,33 +331,106 @@ int calender(int* year_main, int* month_main){
         }
         printf(" %-6d", i);
     }
-    // ë‹¬ë ¥ ì¶œë ¥ ë
+    // ´Ş·Â Ãâ·Â ³¡
 
     printf("\n");
     return days;
 }
 
-void print_day_sum(Dates *p[], int days){
+void print_day(Dates *h, int input_day){
+    printf("\n****************************\n");
+    printf("%dÀÏÀÇ ¼Òºñ³»¿ª\n\n", input_day);
+    int n_count = 0;
+    for(int i = 0 ; i < h->count ; i++){
+        if(h->udata[i] == NULL) continue;
 
-printf("\n========================\n");
+        printf("%d.\n", n_count + 1);
+        n_count++;
+        read_use(h->udata[i]);
+        
+    }
 
-            int input_day = day_selector(days);
-            int num;
-            int sum=0;
+    int sum = get_day_sum(h);
+    printf("\n%dÀÏ¿¡ ÃÑ ¼Òºñ±İ¾×Àº %d¿øÀÔ´Ï´Ù.\n", input_day, sum);
+}
+
+void print_month(Dates *h[], int days){
+    int sum = 0;
+    for(int i = 0; i < days; i++){
+        if(h[i]->real_count == 0) continue;
+
+        if(i != 0) printf("****************************\n");
+        printf("%dÀÏ\n", i + 1);
+
+        for(int j = 0; j < h[i]->count; j++){
+            if(h[i]->udata[j] == NULL) continue;
+            printf("\n");
+            printf("%dÀÏÀÇ %d¹ø µ¥ÀÌÅÍ:\n", i + 1, j + 1);
+            read_use(h[i]->udata[j]);
+        }
+        sum+= get_day_sum(h[i]);
+
+    }
+
+    printf("\nÃÑ ¼Òºñ±İ¾×Àº %d¿øÀÔ´Ï´Ù.\n", sum);
+}
+
+int repeat_day_select(Dates* h[], int days, int* input_day){
+    int yn;
+    while(1){
+        *input_day = day_selector(days);
+        if(h[*input_day - 1]->real_count == 0){
+            printf("%dÀÏ¿¡´Â ¼Òºñ³»¿ªÀÌ ¾ø½À´Ï´Ù. ´Ù½ÃÀÔ·ÂÇÏ°Ú³ª¿ä? (¿¹: 1, ¾Æ´Ï¿ä: 0) ", *input_day);
+            scanf("%d", &yn);
+            if(yn == 0) break;
             
-            if(p[input_day - 1]->real_count == 0){  // ì†Œë¹„ë‚´ì—­ì´ ì—†ì„ ë•Œ 
-                printf("\n=>í•´ë‹¹ ë‚ ì§œì—ëŠ” ì†Œë¹„ ë‚´ì—­ì´ ì—†ìŠµë‹ˆë‹¤.\n");
-            }
-            else{
-                
-            for(int i = 0; i < p[input_day-1]->real_count; i++){ //ì„ íƒí•œ ë‚ ì§œì˜ ì†Œë¹„ ë‚´ì—­ì´ 1ê°œ ì´ìƒì¼ë•Œ 
-                sum+=p[input_day - 1]->udata[i]->price;
-            }  
-            printf("\t%dì¼ì˜ ì´ ì§€ì¶œ: %d\n", input_day,sum);
-            }
-   
- printf("\n========================\n");
+        }
+        else{
+            yn = 1;
+            break;
+        }
+    }
+    return yn;
+}
 
+void search_data(Dates* h[], int days){
+    int scnt = 0;
+    char search[100]; //°Ë»öÇÒ Å°¿öµå 
+    printf("°Ë»öÇÒ Å°¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ");
+    getchar();
+    fgets(search, 100, stdin);
+    search[strlen(search)-1] = '\0';
 
+    for (int i = 0; i < days; i++){
+        if (h[i]->real_count == 0) continue;
+        for(int j = 0; j < h[i]->count; j++){
+            if(h[i]->udata[j] == NULL) continue;
+            if(strstr(h[i]->udata[j]->what, search)){
+                printf("****************************\n");
+                printf("%dÀÏÀÇ %d¹ø µ¥ÀÌÅÍ:\n", i + 1, j + 1);
+                read_use(h[i]->udata[j]);
+                scnt++;
+            }
+        }
+    }
+    if (scnt == 0) printf("=> ÇØ´ç Å°¿öµå µé¾î°£ µ¥ÀÌÅÍ ¾øÀ½! ");
+
+}
+
+int get_day_sum(Dates *p){
+
+    int sum = 0;
+    if(p->real_count == 0){  // ¼Òºñ³»¿ªÀÌ ¾øÀ» ¶§ 
+        return sum;
+    }
+    else{
+        
+        for(int i = 0; i < p->count; i++){ //¼±ÅÃÇÑ ³¯Â¥ÀÇ ¼Òºñ ³»¿ªÀÌ 1°³ ÀÌ»óÀÏ¶§ 
+            if(p->udata[i] == NULL) continue;
+            sum+= p->udata[i]->price;
+        } 
+    }
+
+    return sum;
 }
 

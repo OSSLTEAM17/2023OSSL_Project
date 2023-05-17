@@ -7,11 +7,11 @@ int main(){
 
     int input_day, menu, yn, num;
     
-    printf("íŒŒì¼ì„ ì½ì–´ì˜¤ì‹œê² ìŠµë‹ˆê¹Œ? (ì˜ˆ: 1, ì•„ë‹ˆìš”: 0) ");
+    printf("ÆÄÀÏÀ» ÀĞ¾î¿À½Ã°Ú½À´Ï±î? (¿¹: 1, ¾Æ´Ï¿ä: 0) ");
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("ì½ì–´ì˜¤ì‹¤ ë°ì´í„°ì˜ ë…„ë„ì™€ ì›”ì— ëŒ€í•œ ì •ë³´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. ");
+        printf("ÀĞ¾î¿À½Ç µ¥ÀÌÅÍÀÇ ³âµµ¿Í ¿ù¿¡ ´ëÇÑ Á¤º¸¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. ");
         scanf("%d %d", &year, &month);
     }
 
@@ -26,7 +26,6 @@ int main(){
         loadData(h);
     }
 
-
     while(1){
         menu = select_menu();
         if(menu == 0){
@@ -34,36 +33,101 @@ int main(){
         }
 
         else if(menu == 1){
+            input_day = day_selector(days);
+            while(1){
+                if(h[input_day - 1]->count > 19){
+                    printf("ÇÏ·ç ÀúÀåÇÒ ¼ö ÀÖ´Â °¡°èµ¥ÀÌÅÍ¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù.\n");
+                    break;
+                }
+                else{
+                h[input_day - 1]->udata[h[input_day - 1]->count] = (use_data*)malloc(sizeof(use_data));
+                h[input_day - 1]->count+= add_use(h[input_day - 1]->udata[h[input_day - 1]->count]);
+                h[input_day - 1]->real_count++;
+                
+                printf("%dÀÏ¿¡ µ¥ÀÌÅÍ¸¦ ´õ Ãß°¡ÇÏ½Ã°Ú³ª¿ä? (¿¹: 1, ¾Æ´Ï¿ä: 0) ", input_day);
+                scanf("%d", &yn);
+                if(yn == 0) break;
+                }
+            }
         }
 
         else if(menu == 2){
-        
+
+            yn = repeat_day_select(h, days, &input_day);    
+            
+            if(yn == 0){
+
+            }
+            else{
+                num = data_selector(h[input_day - 1]);
+                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                else{
+                    printf("\n****************************\n");
+                    read_use(h[input_day - 1]->udata[num - 1]);
+                }
+            }
         }
 
         else if(menu == 3){
-        }
+            yn = repeat_day_select(h, days, &input_day);    
+            
+            if(yn == 0){
 
-        else if(menu == 4){// ì‚­ì œ
+            }
+            else{
+                num = data_selector(h[input_day - 1]);
+                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                else{
+                    printf("\n****************************\n");
+                    update_use(h[input_day - 1]->udata[num - 1]);
+                }
+            }
+        }
         
+        else if(menu == 4){
+            yn = repeat_day_select(h, days, &input_day);    
+            
+            if(yn == 0){
+
+            }
+            else{
+                num = data_selector(h[input_day - 1]);
+                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                else{
+                    delete_use(h[input_day - 1]->udata[num - 1]);
+                    h[input_day - 1]->udata[num - 1] = NULL;
+                    h[input_day - 1]->real_count--;
+                }
+            }
         }
 
         else if(menu == 5){
-            
+            saveData(h, days);
+            printf("ÆÄÀÏÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù.\n");
         }
 
         else if(menu == 6){
-            
+            search_data(h, days);
         }
+        
         else if(menu == 7){
-            read_use_all(h);
+            yn = repeat_day_select(h, days, &input_day);
+            if(yn == 0){
 
+            }
+            else{
+                print_day(h[input_day - 1], input_day);
+            }
         }
+
         else if(menu == 8){
-            
+            print_month(h, days);
         }
 
         else if(menu == 9){
+            calender(&year, &month);
         }
+ 
     }
 
 

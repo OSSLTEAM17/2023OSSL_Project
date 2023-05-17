@@ -21,16 +21,14 @@ int select_menu(); //은주, 종혁 (구현 완료)
 
 int add_use(use_data* p); //종혁 (구현 완료)
 void read_use(use_data* p);//은주 (구현 완료)
-void updata_use(use_data* p); //종혁 (구현 완료)
+void update_use(use_data* p); //종혁 (구현 완료)
 void delete_use(use_data *p); //은주 (구현 완료)
 
-void load_data(); //은주, 종혁 (구현 완료)
-void save_data(); //은주, 종혁 (구현 완료)
+void loadData(Dates* h[]); //은주, 종혁 (구현 완료)
+void saveData(Dates* h[], int days); //은주, 종혁 (구현 완료)
 
-void search_data(); //은주
-void print_day_sum(Dates* p[], int days); //은주, Dates* p, int days 파라미터로 추가 
-void print_month_sum(); //은주, 종혁
-int statistics(); //종혁
-
-//void read_use_all(Dates* p); // 선택한 날짜의 하루 지출 내역을 읽어오는 함수 (메뉴 7번)
-//void read_use_one(use_data* p); //은주, read_use 함수에서 나온 use 내용 중 선택한 use 하나만 출력
+void search_data(Dates* h[], int days); //은주 (구현 완료)
+void print_day(Dates *h, int input_day); //은주 (구현 완료)
+void print_month(Dates *h[], int days); //종혁 (구현 완료)
+int repeat_day_select(Dates* h[], int days, int* input_day); //종혁 (구현 완료)
+int get_day_sum(Dates *p); //은주 (구현 완료)
