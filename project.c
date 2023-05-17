@@ -7,11 +7,11 @@ int main(){
 
     int input_day, menu, yn, num;
     
-    printf("ÆÄÀÏÀ» ÀĞ¾î¿À½Ã°Ú½À´Ï±î? (¿¹: 1, ¾Æ´Ï¿ä: 0) ");
+    printf("íŒŒì¼ì„ ì½ì–´ì˜¤ì‹œê² ìŠµë‹ˆê¹Œ? (ì˜ˆ: 1, ì•„ë‹ˆìš”: 0) ");
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("ÀĞ¾î¿À½Ç µ¥ÀÌÅÍÀÇ ³âµµ¿Í ¿ù¿¡ ´ëÇÑ Á¤º¸¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. ");
+        printf("ì½ì–´ì˜¤ì‹¤ ë°ì´í„°ì˜ ë…„ë„ì™€ ì›”ì— ëŒ€í•œ ì •ë³´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. ");
         scanf("%d %d", &year, &month);
     }
 
@@ -36,7 +36,7 @@ int main(){
             input_day = day_selector(days);
             while(1){
                 if(h[input_day - 1]->count > 19){
-                    printf("ÇÏ·ç ÀúÀåÇÒ ¼ö ÀÖ´Â °¡°èµ¥ÀÌÅÍ¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù.\n");
+                    printf("í•˜ë£¨ ì €ì¥í•  ìˆ˜ ìˆëŠ” ê°€ê³„ë°ì´í„°ë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
                     break;
                 }
                 else{
@@ -44,7 +44,7 @@ int main(){
                 h[input_day - 1]->count+= add_use(h[input_day - 1]->udata[h[input_day - 1]->count]);
                 h[input_day - 1]->real_count++;
                 
-                printf("%dÀÏ¿¡ µ¥ÀÌÅÍ¸¦ ´õ Ãß°¡ÇÏ½Ã°Ú³ª¿ä? (¿¹: 1, ¾Æ´Ï¿ä: 0) ", input_day);
+                printf("%dì¼ì— ë°ì´í„°ë¥¼ ë” ì¶”ê°€í•˜ì‹œê² ë‚˜ìš”? (ì˜ˆ: 1, ì•„ë‹ˆìš”: 0) ", input_day);
                 scanf("%d", &yn);
                 if(yn == 0) break;
                 }
@@ -60,7 +60,7 @@ int main(){
             }
             else{
                 num = data_selector(h[input_day - 1]);
-                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                if(num == 0) printf("ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
                 else{
                     printf("\n****************************\n");
                     read_use(h[input_day - 1]->udata[num - 1]);
@@ -76,7 +76,7 @@ int main(){
             }
             else{
                 num = data_selector(h[input_day - 1]);
-                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                if(num == 0) printf("ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
                 else{
                     printf("\n****************************\n");
                     update_use(h[input_day - 1]->udata[num - 1]);
@@ -92,7 +92,7 @@ int main(){
             }
             else{
                 num = data_selector(h[input_day - 1]);
-                if(num == 0) printf("Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n");
+                if(num == 0) printf("ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
                 else{
                     delete_use(h[input_day - 1]->udata[num - 1]);
                     h[input_day - 1]->udata[num - 1] = NULL;
@@ -103,7 +103,7 @@ int main(){
 
         else if(menu == 5){
             saveData(h, days);
-            printf("ÆÄÀÏÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù.\n");
+            printf("íŒŒì¼ì´ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
         }
 
         else if(menu == 6){
