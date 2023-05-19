@@ -102,12 +102,12 @@ int main(){
             }
         }
 
-        else if(menu == 5){
+        else if(menu == 5){ // 파일 저장 
             saveData(h, days);
             printf("파일이 저장되었습니다.\n");
         }
 
-        else if(menu == 6){
+        else if(menu == 6){// 파일에서 데이터 
             search_data(h, days);
         }
         
