@@ -11,7 +11,7 @@ int main(){
     scanf("%d", &yn);
 
     if(yn == 1){
-        printf("읽어오실 데이터의 년도와 월에 대한 정보를 입력해주세요. ");
+        printf("읽어오실 데이터의 년도와 월에 대한 정보를 입력해주세요: ");
         scanf("%d %d", &year, &month);
     }
 
@@ -44,7 +44,7 @@ int main(){
                 h[input_day - 1]->count+= add_use(h[input_day - 1]->udata[h[input_day - 1]->count]);
                 h[input_day - 1]->real_count++;
                 
-                printf("%d일에 데이터를 더 추가하시겠나요? (예: 1, 아니요: 0) ", input_day);
+                printf("%d일에 데이터를 더 추가하시겠습니까? (예: 1, 아니요: 0) ", input_day);
                 scanf("%d", &yn);
                 if(yn == 0) break;
                 }
@@ -52,7 +52,7 @@ int main(){
         }
 
         else if(menu == 2){
-
+            printf("소비 내역을 확인할 ");//추가 
             yn = repeat_day_select(h, days, &input_day);    
             
             if(yn == 0){
@@ -94,6 +94,7 @@ int main(){
                 num = data_selector(h[input_day - 1]);
                 if(num == 0) printf("취소되었습니다.\n");
                 else{
+                    
                     delete_use(h[input_day - 1]->udata[num - 1]);
                     h[input_day - 1]->udata[num - 1] = NULL;
                     h[input_day - 1]->real_count--;
