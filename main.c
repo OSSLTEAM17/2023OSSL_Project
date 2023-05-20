@@ -365,7 +365,7 @@ int repeat_day_select(Dates* h[], int days, int* input_day){
     while(1){
         *input_day = day_selector(days);
         if(h[*input_day - 1]->real_count == 0){
-            printf("%d일에는 소비내역이 없습니다. 다시입력하겠나요? (예: 1, 아니요: 0) ", *input_day);
+            printf("%d일에는 소비내역이 없습니다. 다시입력하시겠습니까? (예: 1, 아니요: 0) ", *input_day); // 출력 멘트 약간 수정  
             scanf("%d", &yn);
             if(yn == 0) break;
             
