@@ -304,7 +304,7 @@ void loadData(Dates* h[]){
 
 void saveData(Dates* h[], int days){
     FILE* file;
-    file = fopen("data1.txt", "wt");
+    file = fopen("data.txt", "wt");
 
 
     for(int i = 0; i < days; i++){
